@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe 'home/index.html.slim', type: :view do
   it 'renders default' do
     render
