@@ -179,6 +179,8 @@ GEM
       activesupport (>= 4.2.0)
       rack (>= 1.1)
       rubocop (>= 0.82.0)
+    rubocop-rspec (1.40.0)
+      rubocop (>= 0.68.1)
     ruby-progressbar (1.10.1)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
@@ -250,6 +252,7 @@ DEPENDENCIES
   rails (~> 6.0.3, >= 6.0.3.1)
   rspec-rails
   rubocop-rails
+  rubocop-rspec
   sass-rails (>= 6)
   slim-rails
   spring
