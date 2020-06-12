@@ -37,6 +37,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rubocop-rspec', require: false
   gem 'factory_bot_rails'
+  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 end
 
 group :development do
