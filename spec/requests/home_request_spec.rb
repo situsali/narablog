@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe 'Home', type: :request do
   describe 'GET root path' do
     it 'returns http success' do
