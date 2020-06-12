@@ -1,2 +1,2 @@
---color
 --require rails_helper
+--profile -fd --color --seed 1337
