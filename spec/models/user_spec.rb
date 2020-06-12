@@ -26,6 +26,17 @@ RSpec.describe User, type: :model do
         expect(user.username).to be_nil
         expect(user).to be_invalid
       end
+
+      it 'miminum 5 characters' do
+        expect(user.username.length).to be >= 5
+        expect(user.username.length).to be <= 128
+
+        user.update(username: 'john')
+        expect(user).to be_invalid
+
+        user.update(username: 'john' * 50)
+        expect(user).to be_invalid
+      end
     end
 
     context '#password' do
