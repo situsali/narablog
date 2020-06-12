@@ -37,6 +37,11 @@ RSpec.describe User, type: :model do
         user.update(username: 'john' * 50)
         expect(user).to be_invalid
       end
+
+      it 'invalid format using space or special characters' do
+        user.update(username: 'john doe!')
+        expect(user).to be_invalid
+      end
     end
 
     context '#password' do
