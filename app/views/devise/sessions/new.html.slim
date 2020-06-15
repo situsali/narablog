@@ -1,0 +1,29 @@
+section.hero.is-primary.is-fullheight
+  .hero-body
+    .container
+      .columns.is-centered
+        .column.is-5
+          = form_with model: resource, as: resource_name, url: session_path(resource_name), class: 'box' do |f|
+            .field
+              = f.label :email, class: 'label'
+              .control.has-icons-left
+                = f.email_field :email, placeholder: 'e.g. bobsmith@gmail.com', class: 'input', required: true
+                span.icon.is-small.is-left
+                  i.mdi.mdi-email
+            .field
+              = f.label :password, class: 'label'
+              .control.has-icons-left
+                = f.password_field :password, placeholder: '********', class: 'input', required: true
+                span.icon.is-small.is-left
+                  i.mdi.mdi-form-textbox-password
+            - if devise_mapping.rememberable?
+              .field
+                label.checkbox[for="user_remember_me"]
+                  = f.check_box :remember_me
+                  |  Remember me
+            .field
+              = f.button class: 'button is-success' do
+                i.mdi.mdi-login
+                |  Login
+
+            = render 'devise/shared/links'
