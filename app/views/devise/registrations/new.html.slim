@@ -1,0 +1,42 @@
+section.hero.has-background-info-dark.is-fullheight
+  .hero-body
+    .container
+      .columns.is-centered
+        .column.is-5
+          = form_with model: resource, as: resource_name, url: registration_path(resource_name), class: 'box' do |f|
+            = render "devise/shared/error_messages", resource: resource
+            h1.title.has-text-dark.has-text-centered
+              | Sign Up
+            hr
+            .field
+              = f.label :name, class: 'label'
+              .control.has-icons-left
+                = f.text_field :name, placeholder: 'e.g Bob Smith', class: 'input'
+                span.icon.is-small.is-left
+                  i.mdi.mdi-account
+            .field
+              = f.label :email, class: 'label'
+              .control.has-icons-left
+                = f.email_field :email, placeholder: 'e.g. bobsmith@gmail.com', class: 'input', required: true, autofocus: true, autocomplete: true
+                span.icon.is-small.is-left
+                  i.mdi.mdi-email
+            hr
+            .field
+              = f.label :password, class: 'label'
+              .control.has-icons-left
+                = f.password_field :password, placeholder: '********', class: 'input', required: true
+                span.icon.is-small.is-left
+                  i.mdi.mdi-form-textbox-password
+            .field
+              = f.label :password_confirmation, class: 'label'
+              .control.has-icons-left
+                = f.password_field :password_confirmation, placeholder: '********', class: 'input', required: true
+                span.icon.is-small.is-left
+                  i.mdi.mdi-form-textbox-password
+            .field
+              = f.button class: 'button is-info is-fullwidth' do
+                span.icon[style="margin-right: 0"]
+                  i.mdi.mdi-account-plus
+                | Sign Up
+
+            = render 'devise/shared/links'
