@@ -3,8 +3,14 @@ section.hero.has-background-info-dark.is-fullheight
     .container
       .columns.is-centered
         .column.is-5
-          = form_with model: resource, as: resource_name, url: registration_path(resource_name), class: 'box' do |f|
+          = form_with model: resource,
+                      scope: resource_name,
+                      url: registration_path(resource_name),
+                      class: 'box',
+                      local: true do |f|
+
             = render "devise/shared/error_messages", resource: resource
+
             h1.title.has-text-dark.has-text-centered
               | Sign Up
             hr
@@ -12,6 +18,12 @@ section.hero.has-background-info-dark.is-fullheight
               = f.label :name, class: 'label'
               .control.has-icons-left
                 = f.text_field :name, placeholder: 'e.g Bob Smith', class: 'input'
+                span.icon.is-small.is-left
+                  i.mdi.mdi-account
+            .field
+              = f.label :username, class: 'label'
+              .control.has-icons-left
+                = f.text_field :username, placeholder: 'e.g bob_smith', class: 'input'
                 span.icon.is-small.is-left
                   i.mdi.mdi-account
             .field
@@ -35,8 +47,7 @@ section.hero.has-background-info-dark.is-fullheight
                   i.mdi.mdi-form-textbox-password
             .field
               = f.button class: 'button is-info is-fullwidth' do
-                span.icon[style="margin-right: 0"]
-                  i.mdi.mdi-account-plus
-                | Sign Up
+                |  Sign up
+                i.mdi.mdi-login
 
             = render 'devise/shared/links'
