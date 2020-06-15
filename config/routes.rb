@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  get '/admin', to: 'admin#index', as: :root_admin
+
+  scope :admin, as: :admin, path: '/admin' do
+    root 'admin#index'
+  end
 
   namespace :admin do
     resources :posts
