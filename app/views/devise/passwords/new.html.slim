@@ -1,0 +1,25 @@
+section.hero.has-background-info-dark.is-fullheight
+  .hero-body
+    .container
+      .columns.is-centered
+        .column.is-5
+          = form_with model: resource,
+            scope: resource_name,
+            url: password_path(resource_name),
+            local: true,
+            class: 'box' do |f|
+
+            h1.title.has-text-dark.has-text-centered
+              | Forgot your password
+            hr
+            .field
+              = f.label :email, class: 'label'
+              .control.has-icons-left
+                = f.email_field :email, placeholder: 'e.g. bobsmith@gmail.com', class: 'input', required: true
+                span.icon.is-small.is-left
+                  i.mdi.mdi-email
+            .field
+              = f.button class: 'button is-info is-fullwidth' do
+                |  Send me reset password instructions
+
+            = render 'devise/shared/links'
