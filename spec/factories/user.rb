@@ -8,5 +8,9 @@ FactoryBot.define do
     trait :confirmed do
       confirmed_at { DateTime.now.to_formatted_s(:db) }
     end
+
+    factory :admin_user do
+      isadmin { true }
+    end
   end
 end
