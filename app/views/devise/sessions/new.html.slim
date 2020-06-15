@@ -3,7 +3,12 @@ section.hero.has-background-info-dark.is-fullheight
     .container
       .columns.is-centered
         .column.is-5
-          = form_with model: resource, as: resource_name, url: session_path(resource_name), class: 'box' do |f|
+          = form_with model: resource,
+            scope: resource_name,
+            url: session_path(resource_name),
+            local: true,
+            class: 'box' do |f|
+
             h1.title.has-text-dark.has-text-centered
               | Sign in
             hr
