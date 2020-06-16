@@ -11,6 +11,7 @@ FactoryBot.define do
 
     factory :admin_user do
       isadmin { true }
+      confirmed_at { DateTime.now.to_formatted_s(:db) }
     end
   end
 end
