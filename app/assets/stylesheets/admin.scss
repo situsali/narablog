@@ -1,3 +1,85 @@
 // Place all the styles related to the admin controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+$navbar-height: 3.25rem;
+$sidebar-width: 200px;
+
+.nara_wrapper {
+    display: flex;
+    flex-direction: column;
+
+    .content_wrapper {
+	margin-left: $sidebar-width;
+	padding: 2rem;
+    }
+
+    .navbar {
+	left: $sidebar-width;
+	width: calc(100% - #{$sidebar-width});
+    }
+
+    .sidebar {
+	background: #363636;
+	height: 100%;
+	position: fixed;
+	transition: all 0.3s ease;
+	width: $sidebar-width;
+	z-index: 40;
+
+	.navbar {
+	    padding-right: 20px;
+	}
+
+	&__title {
+	    background: #17191e;
+	    color: #fff;
+	    display: flex;
+	    flex-direction: row;
+	    flex: 1;
+	    height: $navbar-height;
+
+	    span {
+		display: block;
+		font-weight: 700;
+		font-size: 1.3rem;
+		margin: auto auto auto 10px;
+	    }
+	}
+
+	&__menu {
+	    .title {
+		font-size: 1rem;
+		color: white;
+		font-weight: normal;
+	    }
+
+	    ul {
+		margin-top: 2em;
+	    }
+
+	    ul li a {
+		color: white;
+		display: block;
+		position: relative;
+		padding: 10px;
+		margin-bottom: 1px;
+		white-space: nowrap;
+	    }
+
+	    ul li a span.icon {
+		display: inline-block;
+		margin-right: 10px;
+	    }
+
+	    ul li a span.title {
+		display: inline-block;
+	    }
+
+	    ul li a:hover,
+	    ul li a.active{
+		background: #4360b5;
+		color: #fff;
+	    }
+	}
+    }
+}
