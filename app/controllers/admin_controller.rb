@@ -3,7 +3,6 @@ class AdminController < ApplicationController
   before_action :authenticate_admin_user
 
   def index
-    render plain: 'halo'
   end
 
   private
