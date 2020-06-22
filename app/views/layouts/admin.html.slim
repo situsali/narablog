@@ -12,70 +12,8 @@ html
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body
     .nara_wrapper
-      nav.navbar.is-dark[role="navigation" aria-label="main navigation"]
-        .navbar-brand
-          a.navbar-burger[role="button" aria-label="menu" aria-expanded="false" data-target="naranavbar"]
-            span[aria-hidden="true"]
-            span[aria-hidden="true"]
-            span[aria-hidden="true"]
-
-        #naranavbar.navbar-menu
-          .navbar-end
-            .navbar-item.has-dropdown.is-hoverable
-              a.navbar-link
-                = current_user.name
-                .navbar-dropdown.is-right
-                  a.navbar-item
-                   | User Profile
-                  hr.navbar-divider
-                  = link_to 'Logout',
-                            destroy_user_session_path,
-                            class: 'navbar-item',
-                            method: :delete
-
-      .sidebar
-        .sidebar__title.has-background-black
-          span
-            | Narablog
-        .sidebar__menu
-          ul
-            li
-              a
-                span.icon
-                  i.mdi.mdi-desktop-mac
-                span.title
-                  | Dashboard
-            li
-              a
-                span.icon
-                  i.mdi.mdi-pencil
-                span.title
-                  | Posts
-            li
-              a
-                span.icon
-                  i.mdi.mdi-tag-text-outline
-                span.title
-                  | Categories
-            li
-              a
-                span.icon
-                  i.mdi.mdi-tag-multiple
-                span.title
-                  | Tags
-            li
-              a
-                span.icon
-                  i.mdi.mdi-comment
-                span.title
-                  | Comments
-            li
-              a
-                span.icon
-                  i.mdi.mdi-account
-                span.title
-                  | User Profile
-
+      = render 'layouts/admin/navbar'
+      = render 'layouts/admin/sidebar'
       section.content_wrapper
         .content
           = yield

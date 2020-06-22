@@ -1,0 +1,20 @@
+nav.navbar.is-dark[role="navigation" aria-label="main navigation"]
+  .navbar-brand
+    a.navbar-burger[role="button" aria-label="menu" aria-expanded="false" data-target="naranavbar"]
+      span[aria-hidden="true"]
+      span[aria-hidden="true"]
+      span[aria-hidden="true"]
+
+  #naranavbar.navbar-menu
+    .navbar-end
+      .navbar-item.has-dropdown.is-hoverable
+        a.navbar-link
+          = current_user.name
+          .navbar-dropdown.is-right
+            a.navbar-item
+             | User Profile
+            hr.navbar-divider
+            = link_to 'Logout',
+                      destroy_user_session_path,
+                      class: 'navbar-item',
+                      method: :delete
