@@ -5,13 +5,13 @@
   .sidebar__menu
     ul
       li
-        a
+        = link_to admin_root_path, class: current_page?(admin_root_path) ? 'active' : '' do
           span.icon
             i.mdi.mdi-desktop-mac
           span.title
             | Dashboard
       li
-        a
+        = link_to admin_posts_path, class:  params[:controller] == 'admin/posts' ? 'active' : '' do
           span.icon
             i.mdi.mdi-pencil
           span.title
