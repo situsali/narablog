@@ -5,6 +5,18 @@
 	}
     }
 
+    .header {
+	display: flex;
+
+	.title {
+	    flex: 1;
+	}
+	.new_post {
+	    flex: 11;
+	    margin-top: 5px;
+	}
+    }
+
     .action {
 	display: none;
 
@@ -17,22 +29,17 @@
 	    li {
 		border-left: 1px solid #ccc;
 		display: inline-block;
-		margin-left: 10px;
-		padding-left: 10px;
+		margin: 0 5px 0 5px;
+		padding: 0 5px 0 5px;
 
-		a {
-		    color: #ccc;
-		}
-
-		a:hover {
-		    color: #363636;
-		}
+		a { color: #ccc; }
+		a:hover { color: #363636; }
 	    }
 
 	    li:first-child {
 		border: none;
-		margin: 0;
-		padding: 0;
+		margin: 0 5px 0 0;
+		padding: 0 5px 0 0;
 	    }
 	}
     }
