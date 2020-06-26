@@ -1,0 +1,39 @@
+.posts {
+    td:hover {
+	.action {
+	    display: inline;
+	}
+    }
+
+    .action {
+	display: none;
+
+	ul {
+	    font-size: .75em;
+	    margin: 0;
+	    list-style: none;
+	    padding: 0;
+
+	    li {
+		border-left: 1px solid #ccc;
+		display: inline-block;
+		margin-left: 10px;
+		padding-left: 10px;
+
+		a {
+		    color: #ccc;
+		}
+
+		a:hover {
+		    color: #363636;
+		}
+	    }
+
+	    li:first-child {
+		border: none;
+		margin: 0;
+		padding: 0;
+	    }
+	}
+    }
+}

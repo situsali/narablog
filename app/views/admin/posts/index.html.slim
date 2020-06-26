@@ -1,2 +1,24 @@
-h1 Admin::Posts#index
-p Find me in app/views/admin/posts/index.html.slim
+.posts
+  h1.title
+    | List of Posts
+  table
+    thead
+      th
+        | Title
+      th
+        | User
+      th
+        | Created at
+    tbody
+      - posts.each do |post|
+        tr
+          td
+            = link_to truncate(post.title, length: 50, separator: ''),
+                      edit_admin_post_path(post)
+            span.action
+              ul
+                li = link_to 'Edit', edit_admin_post_path(post)
+                li = link_to 'Delete', admin_post_path(post),
+                              method: :delete, data: { confirm: 'Are you sure?' }
+          td = post.user.name
+          td = post.created_at.strftime('%b %d, %Y')
