@@ -1,14 +1,12 @@
+- paths = request.path.split('/').drop(1)
+
 nav.breadcrumb.has-arrow-separator[aria-label="breadcrumbs"]
   ul
-    li
-      a[href="#"]
-        | Bulma
-    li
-      a[href="#"]
-        | Documentation
-    li
-      a[href="#"]
-        | Components
-    li.is-active
-      a[href="#" aria-current="page"]
-        | Breadcrumb
+    - paths.each_with_index do |path, index|
+      - if path != paths.last
+        - req_path = request.path.split('/').drop(1).shift(index+1)
+        li = link_to path.capitalize, "/#{req_path.join('/')}"
+      - else
+          li.is-active
+            a[href="#" aria-current="page"]
+              = path.capitalize

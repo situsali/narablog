@@ -18,6 +18,7 @@ html
       = render 'layouts/admin/navbar'
       = render 'layouts/admin/sidebar'
       section.content_wrapper
-        = render 'layouts/admin/breadcrumb'
+        - unless current_page? admin_root_path
+          = render 'layouts/admin/breadcrumb'
         .content
           = yield
