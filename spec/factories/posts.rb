@@ -5,7 +5,7 @@ FactoryBot.define do
     body      { Faker::Lorem.paragraph }
 
     trait :published do
-      published { false }
+      published { true }
     end
   end
 end
