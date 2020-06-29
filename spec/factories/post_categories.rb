@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :post_category do
-    post { nil }
-    category { nil }
+    association :post, factory: :post
+    association :category, factory: :category
   end
 end

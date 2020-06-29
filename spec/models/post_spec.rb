@@ -65,4 +65,31 @@ RSpec.describe Post, type: :model do
       end
     end
   end
+
+  describe '.categories' do
+    let(:post) { FactoryBot.create :post }
+
+    context 'when no one categories' do
+      it 'fails to create a post' do
+        post.categories.clear
+        post.save
+
+        expect(post).to be_invalid
+        expect(post.errors.messages[:categories].size).to be 1
+      end
+    end
+
+    context 'when categories are sets at least one' do
+      it 'successfully to create a post' do
+        post.categories.clear
+        post.save
+        expect(post).to be_invalid
+
+        post.categories << FactoryBot.create(:category)
+        post.save
+
+        expect(post).to be_valid
+      end
+    end
+  end
 end
