@@ -69,7 +69,7 @@ RSpec.describe Post, type: :model do
   describe '.categories' do
     let(:post) { FactoryBot.create :post }
 
-    context 'when no one categories' do
+    context 'when have no one categories' do
       it 'fails to create a post' do
         post.categories.clear
         post.save
@@ -89,6 +89,17 @@ RSpec.describe Post, type: :model do
         post.save
 
         expect(post).to be_valid
+      end
+    end
+
+    context 'when categories are duplicates' do
+      it 'fails to set and raise error ActiveRecord::RecordInvalid' do
+        category = FactoryBot.create :category
+
+        post.categories << category
+        expect(post).to be_valid
+
+        expect { post.categories << category }.to raise_error(ActiveRecord::RecordInvalid)
       end
     end
   end
