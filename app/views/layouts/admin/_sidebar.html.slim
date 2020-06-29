@@ -17,7 +17,7 @@
           span.title
             | Posts
       li
-        a
+        = link_to admin_categories_path, class:  params[:controller] == 'admin/categories' ? 'active' : '' do
           span.icon
             i.mdi.mdi-tag-text-outline
           span.title
