@@ -1,4 +1,4 @@
-.posts {
+.admin_items {
     td:hover {
 	.action {
 	    display: inline;
@@ -9,10 +9,9 @@
 	display: flex;
 
 	.title {
-	    flex: 1;
+	    margin-right: 10px;
 	}
 	.new_post {
-	    flex: 11;
 	    margin-top: 5px;
 	}
     }
