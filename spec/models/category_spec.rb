@@ -1,32 +1,32 @@
 RSpec.describe Category, type: :model do
-  describe '.title' do
-    context 'when title is not set' do
+  describe '.name' do
+    context 'when name is not set' do
       it 'fails to create category' do
-        category = FactoryBot.build :category, title: nil
+        category = FactoryBot.build :category, name: nil
         expect(category).to be_invalid
-        expect(category.errors.messages[:title].size).to be 1
+        expect(category.errors.messages[:name].size).to be 1
       end
     end
 
-    context 'when title is set' do
+    context 'when name is set' do
       it 'successfully to create a category' do
         category = FactoryBot.create :category
         expect(category).to be_valid
-        expect(category.title).to be_present
+        expect(category.name).to be_present
       end
     end
   end
 
   describe '.slug' do
     context 'when slug is not set' do
-      it "don't generate if title is blank" do
-        category = FactoryBot.build :category, title: nil, slug: nil
+      it "don't generate if name is blank" do
+        category = FactoryBot.build :category, name: nil, slug: nil
         expect(category).to be_invalid
-        expect(category.errors.messages[:title].size).to be 1
+        expect(category.errors.messages[:name].size).to be 1
         expect(category.errors.messages[:slug].size).to be 1
       end
 
-      it 'auto generate slug by title' do
+      it 'auto generate slug by name' do
         category = FactoryBot.create :category, slug: nil
         expect(category).to be_valid
         expect(category.slug).to be_present
