@@ -3,13 +3,13 @@
     = f.label :name
     .control
       = f.input_field :name, class: 'input'
-    p.help.is-danger = f.full_error :name
+    = f.full_error :name
 
   .field
     = f.label :slug
     .control
       = f.input_field :slug, class: 'input'
-    p.help.is-danger = f.full_error :slug
+    = f.full_error :slug
 
   .field
     = f.label :description
@@ -18,4 +18,4 @@
 
   .field
     .control
-      = f.button :submit, class: 'button is-link'
+      = f.button :submit, class: 'is-link'
