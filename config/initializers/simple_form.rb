@@ -54,7 +54,7 @@ SimpleForm.setup do |config|
     ## Inputs
     # b.use :input, class: 'input', error_class: 'is-invalid', valid_class: 'is-valid'
     b.use :label_input
-    b.use :hint,  wrap_with: { tag: :p, class: 'help is-light' }
+    b.use :hint,  wrap_with: { tag: :p, class: 'help is-info' }
     b.use :error, wrap_with: { tag: :p, class: 'help is-danger' }
 
     ## full_messages_for

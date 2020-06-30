@@ -22,7 +22,7 @@
     .control
       .select.is-multiple.is-fullwidth
         = f.association :categories, wrapper: false, label: false
-    .help.is-info = f.hint 'Press CTRL to multiple selection'
+    = f.hint 'Press CTRL to multiple selection'
 
   .field
     = f.label :body
