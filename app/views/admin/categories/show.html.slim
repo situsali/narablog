@@ -1,2 +1,6 @@
-h1 Admin::Categories#show
-p Find me in app/views/admin/categories/show.html.slim
+h1.title
+  = @category.name
+p
+  = "Slug: /#{@category.slug}/"
+p
+  = "Posts: #{@category.posts.count}"
