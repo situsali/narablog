@@ -3,7 +3,7 @@ class Category < ApplicationRecord
   has_many :posts, through: :post_categories
 
   validates :name, presence: true
-  validates :slug, format: { with: /\A[a-zA-Z0-9_-]+\Z/ }
+  validates :slug, presence: true, format: { with: /\A[a-zA-Z0-9_-]+\Z/ }
 
   before_validation :generate_slug
 
