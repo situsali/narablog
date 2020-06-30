@@ -5,6 +5,12 @@
 	}
     }
 
+    .box {
+	border-radius: 6px;
+	border: 1px solid rgba(24,28,33,.06);
+	box-shadow: none;
+    }
+
     .header {
 	display: flex;
 

@@ -3,10 +3,16 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 @import 'admin/items';
 
+$body-color: #f8f8f8;
 $navbar-height: 3.25rem;
 $sidebar-width: 200px;
 
+html, body {
+    background-color: $body-color;
+}
+
 .nara_wrapper {
+    background-color: $body-color;
     display: flex;
     flex-direction: column;
 
