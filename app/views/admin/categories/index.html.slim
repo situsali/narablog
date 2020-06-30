@@ -13,7 +13,7 @@
     table.table.is-striped
       thead
         th
-          | Title
+          | Name
         th
           | Posts
         th
@@ -22,7 +22,7 @@
         - categories.each do |category|
           tr
             td
-              = link_to truncate(category.title, length: 50, separator: ''),
+              = link_to truncate(category.name, length: 50, separator: ''),
                         edit_admin_category_path(category)
               span.action
                 ul
