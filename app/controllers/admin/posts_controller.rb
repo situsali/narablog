@@ -15,7 +15,9 @@ class Admin::PostsController < AdminController
   end
 
   def create
-    @post = Post.create post_params
+    post_paramters = post_params
+    post_paramters.merge! user_id: current_user.id
+    @post = Post.create post_paramters
     return render :new unless @post.valid?
 
     redirect_to admin_posts_path
@@ -57,6 +59,6 @@ class Admin::PostsController < AdminController
   end
 
   def post_params
-    params.require(:post).permit(:title, :slug, :user_id, { category_ids: [] }, { tag_ids: [] }, :body)
+    params.require(:post).permit(:title, :slug, { category_ids: [] }, { tag_ids: [] }, :body)
   end
 end
