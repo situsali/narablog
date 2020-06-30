@@ -54,14 +54,14 @@ SimpleForm.setup do |config|
     ## Inputs
     # b.use :input, class: 'input', error_class: 'is-invalid', valid_class: 'is-valid'
     b.use :label_input
-    b.use :hint,  wrap_with: { tag: :span, class: :hint }
-    b.use :error, wrap_with: { tag: :span, class: :error }
+    b.use :hint,  wrap_with: { tag: :p, class: 'help is-light' }
+    b.use :error, wrap_with: { tag: :p, class: 'help is-danger' }
 
     ## full_messages_for
     # If you want to display the full error message for the attribute, you can
     # use the component :full_error, like:
     #
-    # b.use :full_error, wrap_with: { tag: :span, class: :error }
+    # b.use :full_error, class: 'help is-danger'
   end
 
   # The default wrapper to be used by the FormBuilder.
@@ -74,7 +74,7 @@ SimpleForm.setup do |config|
   config.boolean_style = :nested
 
   # Default class for buttons
-  config.button_class = 'btn'
+  config.button_class = 'button'
 
   # Method used to tidy up errors. Specify any Rails Array method.
   # :first lists the first message for each field.
@@ -158,7 +158,7 @@ SimpleForm.setup do |config|
   # config.cache_discovery = !Rails.env.development?
 
   # Default class for inputs
-  # config.input_class = nil
+  config.input_class = nil
 
   # Define the default class of the input wrapper of the boolean input.
   config.boolean_label_class = 'checkbox'
