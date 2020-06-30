@@ -4,7 +4,7 @@ class Post < ApplicationRecord
   has_many :categories, through: :post_categories, dependent: :destroy
 
   validates :title, presence: true
-  validates :slug, format: { with: /\A[a-zA-Z0-9_-]+\Z/ }
+  validates :slug, presence: true, format: { with: /\A[a-zA-Z0-9_-]+\Z/ }
   validates :categories, presence: true
 
   before_validation :generate_slug
