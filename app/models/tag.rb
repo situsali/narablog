@@ -1,6 +1,6 @@
 class Tag < ApplicationRecord
   has_many :post_tags
-  has_many :post, through: :post_tags
+  has_many :posts, through: :post_tags
 
   validates :name, presence: true
   validates :slug, presence: true, format: { with: /\A[a-zA-Z0-9_-]+\Z/ }

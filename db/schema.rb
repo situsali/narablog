@@ -34,11 +34,11 @@ ActiveRecord::Schema.define(version: 2020_07_01_055513) do
 
   create_table "post_tags", force: :cascade do |t|
     t.bigint "post_id", null: false
-    t.bigint "category_id", null: false
+    t.bigint "tag_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["category_id"], name: "index_post_tags_on_category_id"
     t.index ["post_id"], name: "index_post_tags_on_post_id"
+    t.index ["tag_id"], name: "index_post_tags_on_tag_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 2020_07_01_055513) do
 
   add_foreign_key "post_categories", "categories"
   add_foreign_key "post_categories", "posts"
-  add_foreign_key "post_tags", "categories"
   add_foreign_key "post_tags", "posts"
+  add_foreign_key "post_tags", "tags"
   add_foreign_key "posts", "users"
 end
