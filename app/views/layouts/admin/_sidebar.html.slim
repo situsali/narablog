@@ -23,7 +23,7 @@
           span.title
             | Categories
       li
-        a
+        = link_to admin_tags_path, class: params[:controller] == 'admin/tags' ? 'active' : '' do
           span.icon
             i.mdi.mdi-tag-multiple
           span.title
