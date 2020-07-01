@@ -26,3 +26,11 @@
               .select.is-multiple.is-fullwidth
                 = f.association :categories, wrapper: false, label: false
             = f.hint 'Press CTRL to multiple selection'
+
+          .field
+            .field
+              = f.label :tags
+            .control
+              .select.is-multiple.is-fullwidth
+                = f.association :tags, wrapper: false, label: false
+            = f.hint 'Press CTRL to multiple selection'

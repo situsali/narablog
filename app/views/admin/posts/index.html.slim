@@ -17,6 +17,8 @@
         th
           | Categories
         th
+          | Tags
+        th
           | User
         th
           | Created at
@@ -50,5 +52,6 @@
                         | View
 
             td = truncate(post.categories.pluck(:name).join(', '), length: 30, separator: '')
+            td = truncate(post.tags.pluck(:name).join(', '), length: 30, separator: '')
             td = post.user.name
             td = post.created_at.strftime('%b %d, %Y')
