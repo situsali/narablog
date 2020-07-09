@@ -32,6 +32,8 @@ gem 'rubocop-rails', require: false
 gem 'devise'
 gem 'simple_form'
 gem 'kramdown'
+gem 'kramdown-parser-gfm'
+gem 'rouge'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
