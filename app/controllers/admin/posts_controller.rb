@@ -16,7 +16,7 @@ class Admin::PostsController < AdminController
 
   def create
     post_paramters = post_params
-    post_paramters.merge! user_id: current_user.id
+    post_paramters.merge! user_id: current_user.id, published: true
     @post = Post.create post_paramters
     return render :new unless @post.valid?
 
