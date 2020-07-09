@@ -6,3 +6,14 @@ section.hero.is-primary
 
       h2.subtitle
         | Primary subtitle
+
+section
+  .container
+    - posts.each do |post|
+      h1.title
+        = link_to post.title, post_path(post.slug)
+      h2.subtitle
+        = post.created_at.to_date.to_formatted_s(:long)
+      .content
+        = sanitize(post.body.to_html.truncate(100))
+
