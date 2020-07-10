@@ -2,16 +2,49 @@ section.hero.is-primary
   .hero-body
     .container
       h1.title
-        = post.title
+        = @post.title
       h2.subtitle
-        = post.created_at.to_date.to_formatted_s(:long)
+        = @post.created_at.to_date.to_formatted_s(:long)
       .tags
-        - post.tags.each do |tag|
+        - @post.tags.each do |tag|
             span.tag.is-link
               = tag.name
 
 section[style="margin-top: 20px"]
   .container
       .content
-        = sanitize(post.body.to_html)
+        = sanitize(@post.body.to_html)
 
+        hr
+        h1.title
+          | Comments
+
+        article.media
+          .media-content
+            = simple_form_for Comment.new, url: post_comment_path, method: :post do |f|
+              .field
+                .control
+                  = f.text_area :body, class: 'textarea'
+                = f.hint 'Support markdown formatting'
+
+              - if user_signed_in?
+                  .field
+                    .control
+                      = f.button :submit, 'Post Comment', class: 'is-link'
+              - else
+                  .field
+                    .control
+                       p.has-text-danger
+                         | Please sign in to post your comment:
+                       = link_to 'Sign in', user_session_path,  class: 'button is-primary'
+
+
+        - Comment.in_post(@post).each do |comment|
+            article.media
+              figure.media-left
+                p.image.is-64x64
+                  img[src="https://bulma.io/images/placeholders/128x128.png"]
+              .media-content
+                .content
+                  strong = comment.user.name
+                  = sanitize(comment.body.to_html)

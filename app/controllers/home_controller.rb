@@ -5,7 +5,22 @@ class HomeController < ApplicationController
   end
 
   def post
-    post = Post.find_by slug: params[:id]
-    render :post, locals: { post: post }
+    @post = current_post
+  end
+
+  def post_comment
+    comment_params = params.require(:comment).permit(:body)
+    comment_params.merge! user_id: current_user.id
+
+    @post = current_post
+    @post.comments.create comment_params
+
+    redirect_to post_path
+  end
+
+  private
+
+  def current_post
+    @current_post ||= Post.where(slug: params[:id], published: true).first
   end
 end
