@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, path: 'member'
+  devise_for :users, path: 'member', controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   scope :admin, as: :admin, path: '/admin' do
     root 'admin#index'
