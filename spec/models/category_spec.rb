@@ -23,7 +23,7 @@ RSpec.describe Category, type: :model do
         category = FactoryBot.build :category, name: nil, slug: nil
         expect(category).to be_invalid
         expect(category.errors.messages[:name].size).to be 1
-        expect(category.errors.messages[:slug].size).to be 1
+        expect(category.errors.messages[:slug].size).to be 2
       end
 
       it 'auto generate slug by name' do

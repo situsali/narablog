@@ -41,7 +41,7 @@ RSpec.describe Post, type: :model do
         post = FactoryBot.build :post, title: nil, slug: nil
         expect(post).to be_invalid
         expect(post.errors.messages[:title].size).to be 1
-        expect(post.errors.messages[:slug].size).to be 1
+        expect(post.errors.messages[:slug].size).to be 2
       end
 
       it 'auto generate slug by title' do
