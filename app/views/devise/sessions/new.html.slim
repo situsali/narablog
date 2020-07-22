@@ -2,36 +2,72 @@ section.hero.has-background-info-dark.is-fullheight
   .hero-body
     .container
       .columns.is-centered
-        .column.is-5
-          = form_with model: resource,
-            scope: resource_name,
-            url: session_path(resource_name),
-            local: true,
-            class: 'box' do |f|
-
-            h1.title.has-text-dark.has-text-centered
-              | Sign in
-            hr
-            .field
-              = f.label :email, class: 'label'
-              .control.has-icons-left
-                = f.email_field :email, placeholder: 'e.g. bobsmith@gmail.com', class: 'input', required: true
-                span.icon.is-small.is-left
-                  i.mdi.mdi-email
-            .field
-              = f.label :password, class: 'label'
-              .control.has-icons-left
-                = f.password_field :password, placeholder: '********', class: 'input', required: true
-                span.icon.is-small.is-left
-                  i.mdi.mdi-form-textbox-password
-            - if devise_mapping.rememberable?
+        .column.is-10.box[style="padding: 5rem;"]
+          .columns
+            .column
               .field
-                label.checkbox[for="user_remember_me"]
-                  = f.check_box :remember_me
-                  |  Remember me
-            .field
-              = f.button class: 'button is-info is-fullwidth' do
-                |  Enter
-                i.mdi.mdi-login
+                p
+                  | Click to sign in with:
+              .field
+                = link_to user_google_oauth2_omniauth_authorize_path,
+                          class: 'button is-danger is-fullwidth' do
+                          span.icon
+                            i.mdi.mdi-google-plus
+                          span
+                            | Sign in with Google
+              .field
+                a.button.is-link.is-fullwidth
+                  span.icon
+                    i.mdi.mdi-facebook
+                  span
+                    | Sign in with Facebook
+              .field
+                a.button.is-info.is-fullwidth
+                  span.icon
+                    i.mdi.mdi-twitter
+                  span
+                    | Sign in with Twitter
+            .column.is-1
+            .column
+              .field
+                p
+                  | Or sign in with email:
 
-            = render 'devise/shared/links'
+              = form_with model: resource,
+                scope: resource_name,
+                url: session_path(resource_name),
+                local: true do |f|
+
+                .field
+                  .control.has-icons-left
+                    = f.email_field :email, placeholder: 'e.g. bobsmith@gmail.com', class: 'input', required: true
+                    span.icon.is-small.is-left
+                      i.mdi.mdi-email
+                .field
+                  .control.has-icons-left
+                    = f.password_field :password, placeholder: '********', class: 'input', required: true
+                    span.icon.is-small.is-left
+                      i.mdi.mdi-form-textbox-password
+                .columns
+                  .column
+                    .field
+                      ul
+                        - if devise_mapping.rememberable?
+                            li
+                              label.checkbox[for="user_remember_me"]
+                                = f.check_box :remember_me
+                                |  Remember me
+
+                        - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
+                            li
+                              = link_to "Forgot your password?", new_password_path(resource_name)
+
+                        - if devise_mapping.registerable? && controller_name != 'registrations'
+                            li
+                              = link_to "Sign up", new_registration_path(resource_name)
+
+                  .column
+                    .field
+                      = f.button 'Sign in', class: 'button is-primary is-fullwidth'
+
+            / = render 'devise/shared/links'

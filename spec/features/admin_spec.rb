@@ -7,7 +7,7 @@ RSpec.describe 'Admin page', type: :feature do
 
       fill_in 'user_email', with: admin_user.email
       fill_in 'user_password', with: 'Password'
-      click_on 'Enter'
+      click_on 'Sign in'
 
       visit admin_root_path
       expect(page).to have_current_path admin_root_path
@@ -28,7 +28,7 @@ RSpec.describe 'Admin page', type: :feature do
 
       fill_in 'user_email', with: admin_user.email
       fill_in 'user_password', with: 'Password'
-      click_on 'Enter'
+      click_on 'Sign in'
 
       visit admin_root_path
       expect(page).not_to have_content 'Dashboard'
@@ -42,7 +42,7 @@ RSpec.describe 'Admin page', type: :feature do
 
       fill_in 'user_email', with: user.email
       fill_in 'user_password', with: 'Password'
-      click_on 'Enter'
+      click_on 'Sign in'
 
       visit admin_root_path
       expect(page).not_to have_content 'Dashboard'
