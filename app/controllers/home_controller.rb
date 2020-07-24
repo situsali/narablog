@@ -21,6 +21,6 @@ class HomeController < ApplicationController
   private
 
   def current_post
-    @current_post ||= Post.where(slug: params[:id], published: true).first
+    @current_post ||= Post.find_by! slug: params[:id], published: true
   end
 end

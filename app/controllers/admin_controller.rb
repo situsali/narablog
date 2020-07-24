@@ -10,6 +10,6 @@ class AdminController < ApplicationController
   def authenticate_admin_user
     return if user_signed_in? && current_user&.isadmin
 
-    render_404
+    not_found
   end
 end

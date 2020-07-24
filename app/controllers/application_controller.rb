@@ -2,9 +2,16 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :store_user_location!, if: :storable_location?
 
-  def render_404
+  rescue_from ActiveRecord::RecordNotFound, with: :not_found
+  rescue_from ActionController::RoutingError, with: :not_found
+  rescue_from ActionController::UnknownFormat, with: :not_found
+  rescue_from ActionController::InvalidAuthenticityToken, with: :invalid_token
+
+  protect_from_forgery with: :exception, prepend: true
+
+  def not_found
     respond_to do |format|
-      format.html { render file: "#{Rails.root}/public/404.html", layout: false, status: :not_found }
+      format.html { render 'not_found', layout: 'application', status: :not_found }
       format.xml  { head :not_found }
       format.any  { head :not_found }
     end
