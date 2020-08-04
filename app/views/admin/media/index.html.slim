@@ -20,30 +20,35 @@
         - media.each do |medium|
           tr
             td
-              = link_to truncate(medium.file.url, length: 50, separator: ''),
-                        edit_admin_medium_path(medium)
-              span.action
-                ul
-                  li
-                    = link_to edit_admin_medium_path(medium) do
-                      span.icon
-                        i.mdi.mdi-circle-edit-outline
-                      span
-                        | Edit
-                  li
-                    = link_to  admin_media_path(medium),
-                      method: :delete,
-                      data: { confirm: 'Are you sure?' } do
-                      span.icon
-                        i.mdi.mdi-delete
-                      span
-                        | Delete
-                  li
-                    = link_to admin_media_path(medium) do
-                      span.icon
-                        i.mdi.mdi-open-in-new
-                      span
-                        | View
+              .media
+                .media-left
+                  p.image.is-64x64
+                    = image_tag(medium.file.small_thumb.url)
+                .media-content
+                  .content
+                    .mt-1
+                      = medium.file_identifier
+                      span.action[style="display: inline"]
+                        ul
+                          li
+                            = link_to edit_admin_medium_path(medium) do
+                              span.icon
+                                i.mdi.mdi-circle-edit-outline
+                              span
+                                | Edit
+                          li
+                            = link_to  admin_media_path(medium),
+                              method: :delete,
+                              data: { confirm: 'Are you sure?' } do
+                              span.icon
+                                i.mdi.mdi-delete
+                              span
+                                | Delete
+                          li
+                            = link_to admin_media_path(medium) do
+                              span.icon
+                                i.mdi.mdi-open-in-new
+                              span
+                                | View
 
-            td = medium.posts.count
             td = medium.created_at.strftime('%b %d, %Y')
