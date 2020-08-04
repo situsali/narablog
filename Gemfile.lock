@@ -327,6 +327,7 @@ DEPENDENCIES
   kramdown
   kramdown-parser-gfm
   listen (~> 3.2)
+  mini_magick
   omniauth-google-oauth2
   pg (>= 0.18)
   puma (~> 4.1)

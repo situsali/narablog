@@ -35,6 +35,7 @@ gem 'kramdown'
 gem 'kramdown-parser-gfm'
 gem 'rouge'
 gem 'carrierwave'
+gem 'mini_magick'
 
 ## Devise Omni Auth
 gem 'omniauth-google-oauth2'
