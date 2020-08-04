@@ -1,0 +1,49 @@
+.admin_items
+  .header
+    h1.title
+      | Media
+    .new_post
+      = link_to new_admin_medium_path,
+                class: 'button is-light is-small' do
+                span.icon
+                  i.mdi.mdi-cloud-upload
+                span
+                  | Upload file(s)
+  .table-container
+    table.table.is-striped
+      thead
+        th
+          | File
+        th
+          | Created at
+      tbody
+        - media.each do |medium|
+          tr
+            td
+              = link_to truncate(medium.file.url, length: 50, separator: ''),
+                        edit_admin_medium_path(medium)
+              span.action
+                ul
+                  li
+                    = link_to edit_admin_medium_path(medium) do
+                      span.icon
+                        i.mdi.mdi-circle-edit-outline
+                      span
+                        | Edit
+                  li
+                    = link_to  admin_media_path(medium),
+                      method: :delete,
+                      data: { confirm: 'Are you sure?' } do
+                      span.icon
+                        i.mdi.mdi-delete
+                      span
+                        | Delete
+                  li
+                    = link_to admin_media_path(medium) do
+                      span.icon
+                        i.mdi.mdi-open-in-new
+                      span
+                        | View
+
+            td = medium.posts.count
+            td = medium.created_at.strftime('%b %d, %Y')

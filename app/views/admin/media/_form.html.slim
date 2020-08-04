@@ -1,0 +1,10 @@
+= simple_form_for [:admin, @medium] do |f|
+  .field
+    = f.label :file
+    .control
+      = f.file_field :file, class: 'input'
+    = f.full_error :file
+
+  .field
+    .control
+      = f.button :submit, 'Upload file', class: 'is-link'

@@ -35,8 +35,8 @@
           span.title
             | Comments
       li
-        a
+        = link_to admin_media_path, class: params[:controller] == 'admin/media' ? 'active' : '' do
           span.icon
             i.mdi.mdi-account
           span.title
-            | User Profile
+            | Media
