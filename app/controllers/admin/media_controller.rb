@@ -3,7 +3,7 @@ class Admin::MediaController < AdminController
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   def index
-    render :index, locals: { media: Medium.all }
+    render :index, locals: { media: Medium.order(created_at: :desc) }
   end
 
   def show
