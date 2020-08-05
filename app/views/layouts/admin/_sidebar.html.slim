@@ -29,7 +29,7 @@
           span.title
             | Tags
       li
-        a
+        = link_to admin_comments_path, class: params[:controller] == 'admin/comments' ? 'active' : '' do
           span.icon
             i.mdi.mdi-comment
           span.title
