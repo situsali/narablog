@@ -11,6 +11,7 @@ require("src/javascripts/channels")
 import "bulma"
 import '@mdi/font/scss/materialdesignicons'
 import '../src/stylesheets/syntax.css'
+import '../src/stylesheets/home.scss'
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -19,7 +20,7 @@ import '../src/stylesheets/syntax.css'
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 //
-//require.context('../images', true);
+require.context('../images', true);
 
 document.addEventListener("turbolinks:load", function() {
 	var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);

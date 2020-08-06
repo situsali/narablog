@@ -1,11 +1,17 @@
-section.hero.is-primary
+section.hero.is-link.is-bold
   .hero-body
     .container
-      h1.title
-        | Primary title
+      h1.title.is-uppercase.is-size-1.has-text-weight-bold
+        | Situs
+        span.has-bg-tag
+          | Ali
 
       h2.subtitle
-        | Primary subtitle
+        | Portal belajar pemrograman yang mudah dan menyenangkan.
+        br
+        | Terdapat ribuan tutorial disajikan dalam bahasa Indonesia.
+
+  = render partial: 'wave'
 
 section
   .container
