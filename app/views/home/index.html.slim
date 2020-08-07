@@ -1,6 +1,6 @@
 section.hero.is-link.is-bold
   .hero-body
-    .container
+    .container.is-fluid
       h1.title.is-uppercase.is-size-1.has-text-weight-bold
         | Situs
         span.has-bg-tag
@@ -14,7 +14,7 @@ section.hero.is-link.is-bold
   = render partial: 'wave'
 
 section.section
-  .container
+  .container.is-fluid
     - posts.each do |post|
       h1.title
         = link_to post.title, post_path(post.slug)
