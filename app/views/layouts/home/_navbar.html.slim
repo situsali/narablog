@@ -27,12 +27,25 @@ nav.navbar.navbar-bg-topborder[role="navigation" aria-label="main navigation"]
             a.navbar-item
               |  Report an issue
       .navbar-end
-        .navbar-item
-          .buttons
-            = link_to user_session_path, class: 'button is-link' do
-                span.icon
-                  i.mdi.mdi-login
-                strong
-                  | Masuk
+        - if user_signed_in?
+          .navbar-item.has-dropdown.is-hoverable
+            a.navbar-link
+              = current_user.name
+              .navbar-dropdown.is-right
+                a.navbar-item
+                 | User Profile
+                hr.navbar-divider
+                = link_to 'Logout',
+                          destroy_user_session_path,
+                          class: 'navbar-item',
+                          method: :delete
+        - else
+          .navbar-item
+            .buttons
+              = link_to user_session_path, class: 'button is-link' do
+                  span.icon
+                    i.mdi.mdi-login
+                  strong
+                    | Masuk
 
 
