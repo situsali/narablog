@@ -17,6 +17,12 @@
           span.title
             | Posts
       li
+        = link_to admin_pages_path, class:  params[:controller] == 'admin/pages' ? 'active' : '' do
+          span.icon
+            i.mdi.mdi-note-outline
+          span.title
+            | Static Pages
+      li
         = link_to admin_categories_path, class:  params[:controller] == 'admin/categories' ? 'active' : '' do
           span.icon
             i.mdi.mdi-tag-text-outline

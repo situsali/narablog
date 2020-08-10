@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :posts
+    resources :pages
     resources :categories
     resources :tags
     resources :comments
