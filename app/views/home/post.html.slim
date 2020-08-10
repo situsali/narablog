@@ -1,7 +1,9 @@
+- page_title @post.title
+
 section.hero.is-link.is-bold
   .hero-body
     .container.is-fluid
-      h1.title
+      h1.title.is-size-1
         = @post.title
       h2.subtitle
         = @post.created_at.to_date.to_formatted_s(:long)
@@ -18,7 +20,7 @@ section.hero.is-link.is-bold
     .columns
       .column
         article
-          .content
+          .content.is-size-5
             = sanitize(@post.body.to_html)
 
             hr
@@ -55,10 +57,4 @@ section.hero.is-link.is-bold
                       strong = comment.user.name
                       = sanitize(comment.body.to_html)
       .column.is-4
-        article.message.has-shadow.is-dark
-          .message-header.is-size-5
-            p
-              | Artikel Lainnya
-
-          .message-body
-            | Lorep ipsum
+        = render partial: 'sidebar'

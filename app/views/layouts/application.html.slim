@@ -2,7 +2,8 @@ doctype html
 html
   head
     title
-      | Narablog
+      - page_title unless content_for? :title
+      = content_for :title
 
     = csrf_meta_tags
     = csp_meta_tag
