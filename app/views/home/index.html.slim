@@ -3,16 +3,17 @@
 section.hero.is-link.is-bold
   .hero-body
     .container.is-fluid
-      h1.title.is-uppercase.is-size-1.has-text-weight-bold
-        = sitename.split[0]
-        - if sitename.split.count > 1
-          span.has-bg-tag
-            = sitename.split.drop(1).join(' ')
+      - if sitename.present?
+        h1.title.is-uppercase.is-size-1.has-text-weight-bold
+          = sitename.split[0]
+          - if sitename.split.count > 1
+            span.has-bg-tag
+              = sitename.split.drop(1).join(' ')
 
-      h2.subtitle
-        | Portal belajar pemrograman yang mudah dan menyenangkan.
-        br
-        | Terdapat ribuan tutorial disajikan dalam bahasa Indonesia.
+        h2.subtitle
+          | Portal belajar pemrograman yang mudah dan menyenangkan.
+          br
+          | Terdapat ribuan tutorial disajikan dalam bahasa Indonesia.
 
   = render partial: 'wave'
 
