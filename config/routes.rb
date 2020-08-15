@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   end
 
   root 'home#index'
-  get '/:id', to: 'home#post', as: :post
+  get '/:id', to: 'home#post_or_page', as: :post_or_page
 
   post '/:id/comment', to: 'home#post_comment', as: :post_comment
   post '/:id/reply_comment/:comment_id', to: 'home#post_comment_reply', as: :post_comment_reply

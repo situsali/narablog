@@ -21,7 +21,7 @@ section.section
   .container.is-fluid
     - posts.each do |post|
       h1.title
-        = link_to post.title, post_path(post.slug)
+        = link_to post.title, post_or_page_path(post.slug)
       h2.subtitle
         = post.created_at.to_date.to_formatted_s(:long)
       .content

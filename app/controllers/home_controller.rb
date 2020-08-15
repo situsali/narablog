@@ -4,8 +4,12 @@ class HomeController < ApplicationController
     render :index, locals: { posts: posts }
   end
 
-  def post
+  def post_or_page
+    @page = current_page
+    return render 'page' if @page.present?
+
     @post = current_post
+    render 'post'
   end
 
   def post_comment
@@ -15,12 +19,16 @@ class HomeController < ApplicationController
     @post = current_post
     @post.comments.create comment_params
 
-    redirect_to post_path
+    redirect_to post_or_page_path
   end
 
   private
 
   def current_post
     @current_post ||= Post.find_by! slug: params[:id], published: true
+  end
+
+  def current_page
+    @current_page ||= Page.find_by slug: params[:id]
   end
 end

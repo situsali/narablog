@@ -1,0 +1,18 @@
+- page_title @page.title
+
+section.hero.is-link.is-bold
+  .hero-body
+    .container.is-fluid
+      h1.title.is-size-1
+        = @page.title
+      h2.subtitle
+        = @page.created_at.to_date.to_formatted_s(:long)
+
+  = render partial: 'wave'
+
+.container.is-fluid
+  section.section
+    article
+      .content.is-size-5
+        = sanitize(@page.body.to_html)
+
