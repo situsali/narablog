@@ -32,6 +32,8 @@ nav.navbar.navbar-bg-topborder[role="navigation" aria-label="main navigation"]
             a.navbar-link
               = current_user.name
               .navbar-dropdown.is-right
+                - if current_user.isadmin?
+                  = link_to 'Admin', admin_root_path, class: 'navbar-item'
                 a.navbar-item
                  | User Profile
                 hr.navbar-divider
