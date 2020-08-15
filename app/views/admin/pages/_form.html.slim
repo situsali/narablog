@@ -1,0 +1,21 @@
+= simple_form_for [:admin, @page] do |f|
+  .field
+    = f.label :title
+    .control
+      = f.input_field :title, class: 'input'
+    = f.full_error :title
+
+  .field
+    = f.label :slug
+    .control
+      = f.input_field :slug, class: 'input'
+    = f.full_error :slug
+
+  .field
+    = f.label :body
+    .control
+      = f.text_area :body, class: 'textarea'
+
+  .field
+    .control
+      = f.button :submit, class: 'is-link'

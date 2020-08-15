@@ -1,2 +1,48 @@
-h1 Admin::Pages#index
-p Find me in app/views/admin/pages/index.html.slim
+.admin_items
+  .header
+    h1.title
+      | Static Pages
+    .new_page
+      = link_to new_admin_page_path,
+                class: 'button is-light is-small' do
+                span.icon
+                  i.mdi.mdi-pencil-plus
+                span
+                  | New
+  .table-container
+    table.table.is-striped
+      thead
+        th
+          | Title
+        th
+          | Created at
+      tbody
+        - pages.each do |page|
+          tr
+            td
+              = link_to truncate(page.title, length: 50, separator: ''),
+                        edit_admin_page_path(page)
+              span.action
+                ul
+                  li
+                    = link_to edit_admin_page_path(page) do
+                      span.icon
+                        i.mdi.mdi-circle-edit-outline
+                      span
+                        | Edit
+                  li
+                    = link_to  admin_page_path(page),
+                      method: :delete,
+                      data: { confirm: 'Are you sure?' } do
+                      span.icon
+                        i.mdi.mdi-delete
+                      span
+                        | Delete
+                  li
+                    = link_to admin_page_path(page) do
+                      span.icon
+                        i.mdi.mdi-open-in-new
+                      span
+                        | View
+
+            td = page.created_at.strftime('%b %d, %Y')
