@@ -15,6 +15,8 @@ class Post < ApplicationRecord
 
   before_validation :generate_slug
 
+  mount_uploader :image, MediaUploader
+
   private
 
   def generate_slug
