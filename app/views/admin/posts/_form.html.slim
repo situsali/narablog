@@ -17,7 +17,7 @@
         .box
           .field
             .control
-              = f.button :submit
+              = f.button :submit, class: 'is-fullwidth is-link'
           hr
           .field
             .field
@@ -34,3 +34,21 @@
               .select.is-multiple.is-fullwidth
                 = f.association :tags, wrapper: false, label: false
             = f.hint 'Press CTRL to multiple selection'
+
+          .field
+            .field
+              = f.label :image, 'Thumbnails'
+              - if @post.image.present?
+                = image_tag @post.image.url, class: 'image', id: 'img_preview'
+              - else
+                image.image#img_preview
+            .control
+              .file.is-warning.is-boxed.is-centered
+                label.file-label
+                  = f.file_field :image, class: 'file-input',
+                                 onchange: "document.getElementById('img_preview').src = window.URL.createObjectURL(this.files[0])"
+                  span.file-cta
+                    span.file-icon
+                      i.mdi.mdi-upload
+                    span.file-label
+                      | Choose a file ...

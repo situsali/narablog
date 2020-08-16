@@ -59,6 +59,6 @@ class Admin::PostsController < AdminController
   end
 
   def post_params
-    params.require(:post).permit(:title, :slug, { category_ids: [] }, { tag_ids: [] }, :body)
+    params.require(:post).permit(:title, :slug, { category_ids: [] }, { tag_ids: [] }, :body, :image)
   end
 end
