@@ -19,11 +19,21 @@ section.hero.is-link.is-bold
 
 section.section
   .container.is-fluid
-    - posts.each do |post|
-      h1.title
-        = link_to post.title, post_or_page_path(post.slug)
-      h2.subtitle
-        = post.created_at.to_date.to_formatted_s(:long)
-      .content
-        = sanitize(post.body.to_html.truncate(100))
+    .columns
+      .column.is-8
+        - posts.each do |post|
+          .post-header
+            h1.title.mb-0
+              = link_to post.title, post_or_page_path(post.slug)
+            h2.subtitle.is-inline.mr-4
+              = post.created_at.to_date.to_formatted_s(:long)
+            .tags.is-inline
+              - tag_colors = ['is-warning', 'is-danger', 'is-dark', 'is-primary']
+              - post.tags.each do |tag|
+                span class=("tag #{tag_colors.sample}")
+                    = tag.name
+          .post-content
+            = sanitize(strip_tags(post.body.to_html).truncate(300, separator: ' '))
+      .column.is-4
+         = render partial: 'sidebar'
 

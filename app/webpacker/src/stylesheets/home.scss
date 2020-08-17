@@ -22,3 +22,18 @@ $situsali-bg: hsl(217, 71%, 53%);
 .has-shadow {
     box-shadow: 0 .5em 1em -.125em rgba(10,10,10,.1),0 0 0 1px rgba(10,10,10,.02);
 }
+
+.post-header {
+    padding-left: 1rem;
+    border-left: 4px solid #ff0083;
+    margin-bottom: 1rem;
+}
+
+.post-content {
+    margin-bottom: 1.5rem;
+    padding-right: 1rem;
+}
+
+.is-inline {
+    display: inline !important;
+}
