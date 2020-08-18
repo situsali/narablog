@@ -35,5 +35,16 @@ $situsali-bg: hsl(217, 71%, 53%);
 }
 
 .is-inline {
-    display: inline !important;
+    display: inline;
+}
+
+.has-bottom-line {
+    &:after {
+	background-color: $situsali-bg;
+	content: "";
+	display: block;
+	height: .2rem;
+	margin-top: .5rem;
+	width: 3rem;
+    }
 }

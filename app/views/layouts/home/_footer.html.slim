@@ -1,0 +1,48 @@
+footer.footer.navbar-bg-topborder
+  .content
+    .columns
+      .column.is-5
+        h1.title = ENV['SITENAME']
+        p
+          | Portal belajar pemrograman yang mudah dan menyenangkan. Terdapat ribuan tutorial disajikan dalam bahasa Indonesia.
+        p
+          | Kritik, saran dan tawaran kerja sama. Kalian bisa hubungi melalui surel berikut:
+          span.icon
+            i.mdi.mdi-email
+          | arsipkode[at]gmail[dot]com
+      .column.is-1
+      .column
+        h1.title.has-bottom-line
+          | Informasi
+        ul
+          li
+            = link_to 'Tentang', post_or_page_path('tentang')
+          li
+            = link_to 'Syarat Layanan', post_or_page_path('syarat-layanan')
+          li
+            = link_to 'Kebijakan Privasi', post_or_page_path('kebijakan-privasi')
+      .column
+        h1.title.has-bottom-line
+          | Sosial Media
+        p
+          | Arsip kode hadir juga diberbagai media sosial lainnya yang bisa kalian ikuti.
+
+        .buttons
+          a.button.is-link[href='https://www.facebook.com/arsipkode' target='_blank']
+            .icon
+              i.mdi.mdi-facebook
+          a.button.is-info[href='https://twitter.com/arsipkode' target='_blank']
+            .icon
+              i.mdi.mdi-twitter
+          a.button.is-warning[href='https://www.instagram.com/arsipkode' target='_blank']
+            .icon
+              i.mdi.mdi-instagram
+          a.button.is-info[href='https://t.me/arsipkode' target='_blank']
+            .icon
+              i.mdi.mdi-telegram
+          a.button.is-danger[href='https://www.youtube.com/arsipkode' target='_blank']
+            .icon
+              i.mdi.mdi-youtube
+          a.button.is-dark[href='https://github.com/arsipkode' target='_blank']
+            .icon
+              i.mdi.mdi-github
