@@ -1,1 +1,3 @@
-= render partial: 'layouts/home/header_extended/google_analytics'
+- if Rails.env.production?
+  = render partial: 'layouts/home/header_extended/google_analytics'
+  = render partial: 'layouts/home/header_extended/yandex_webmaster'
