@@ -7,13 +7,12 @@ section.hero.is-link.is-bold
         h1.title.is-uppercase.is-size-1.has-text-weight-bold
           = sitename.split[0]
           - if sitename.split.count > 1
+            = ' '
             span.has-bg-tag
               = sitename.split.drop(1).join(' ')
 
-        h2.subtitle
-          | Portal belajar pemrograman yang mudah dan menyenangkan.
-          br
-          | Terdapat ribuan tutorial disajikan dalam bahasa Indonesia.
+        h2.subtitle.mt-1
+          = sanitize(ENV['SITE_DESCRIPTION'])
 
   = render partial: 'wave'
 
