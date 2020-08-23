@@ -47,3 +47,16 @@ $situsali-bg: hsl(217, 71%, 53%);
 	width: 3rem;
     }
 }
+
+.highlighter-rouge {
+    margin-bottom: 1rem;
+}
+.highlight {
+    box-shadow: 5px 5px 5px 0px rgba(10,10,10,0.2);
+}
+
+pre.highlight {
+    border-left: .5rem solid $situsali-bg;
+    border-radius: 10px;
+}
+
