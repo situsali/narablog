@@ -1,4 +1,16 @@
 - sitename = ENV['SITENAME']
+- sitedesc = ENV['SITE_DESCRIPTION']
+- site_logo = image_pack_tag 'arsipkode-circle.png'
+- content_for :metadata do
+  meta[property="title" content=(sitename)]
+  meta[property="description" content=(strip_tags(sitedesc))]
+  meta[property="og:title" content=(sitename)]
+  meta[property="og:type" content="website"]
+  meta[property="og:url" content=(request.original_url)]
+  meta[property="og:image" content=(request.base_url + site_logo.gsub(/^(\<img\ssrc=\")|\"\s\/\>/, ''))]
+  meta[property="og:description" content=(strip_tags(sitedesc)[0..119])]
+  meta[property="og:locale" content="id_ID"]
+  meta[property="og:site_name" content=(sitename)]
 
 section.hero.is-link.is-bold
   .hero-body
