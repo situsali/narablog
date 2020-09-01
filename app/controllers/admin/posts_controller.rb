@@ -3,7 +3,7 @@ class Admin::PostsController < AdminController
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   def index
-    render :index, locals: { posts: Post.all }
+    render :index, locals: { posts: Post.order(:created_at) }
   end
 
   def show

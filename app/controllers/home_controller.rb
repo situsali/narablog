@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    posts = Post.where(published: true)
+    posts = Post.where(published: true).order(:created_at)
     render :index, locals: { posts: posts }
   end
 
