@@ -276,6 +276,11 @@ Devise.setup do |config|
                   ENV['DEVISE_OMNIAUTH_GOOGLE_CLIENT_ID'],
                   ENV['DEVISE_OMNIAUTH_GOOGLE_CLIENT_SECRET'],
                   token_params: { parse: :json }
+  config.omniauth :facebook,
+                  ENV['DEVISE_OMNIAUTH_FACEBOOK_APP_ID'],
+                  ENV['DEVISE_OMNIAUTH_FACEBOOK_APP_SECRET'],
+                  token_params: { parse: :json }
+
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.

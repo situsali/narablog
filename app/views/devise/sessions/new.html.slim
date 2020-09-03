@@ -16,11 +16,12 @@ section.hero.has-background-info-dark.is-fullheight
                           span
                             | Sign in with Google
               .field
-                a.button.is-link.is-fullwidth
-                  span.icon
-                    i.mdi.mdi-facebook
-                  span
-                    | Sign in with Facebook
+                = link_to user_facebook_omniauth_authorize_path,
+                          class: 'button is-link is-fullwidth' do
+                          span.icon
+                            i.mdi.mdi-facebook
+                          span
+                            | Sign in with Facebook
               .field
                 a.button.is-info.is-fullwidth
                   span.icon
