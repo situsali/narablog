@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/arunagw/omniauth-twitter.git
+  revision: 41c7be0f169dfd816a78f533b89047e6b29fe0bc
+  specs:
+    omniauth-twitter (1.4.0)
+      omniauth-oauth (~> 1.1)
+      rack
+
+GIT
   remote: https://github.com/faker-ruby/faker.git
   revision: b194dd23bb4cf9f151e6f680e1ea243737d747e1
   branch: master
@@ -153,6 +161,7 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
+    oauth (0.5.4)
     oauth2 (1.4.4)
       faraday (>= 0.8, < 2.0)
       jwt (>= 1.0, < 3.0)
@@ -168,6 +177,9 @@ GEM
       jwt (>= 2.0)
       omniauth (>= 1.1.1)
       omniauth-oauth2 (>= 1.6)
+    omniauth-oauth (1.1.0)
+      oauth
+      omniauth (~> 1.0)
     omniauth-oauth2 (1.7.0)
       oauth2 (~> 1.4)
       omniauth (~> 1.9)
@@ -339,6 +351,7 @@ DEPENDENCIES
   mini_magick
   omniauth-facebook
   omniauth-google-oauth2
+  omniauth-twitter!
   pg (>= 0.18)
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.1)

@@ -43,6 +43,7 @@ gem 'sitemap_generator'
 ## Devise Omni Auth
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
+gem 'omniauth-twitter', github: 'arunagw/omniauth-twitter'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
