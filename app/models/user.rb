@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable, :lockable, :timeoutable, :trackable
 
-  devise :omniauthable, omniauth_providers: %i[google_oauth2 facebook]
+  devise :omniauthable, omniauth_providers: %i[google_oauth2 facebook twitter]
 
   validates :username,
             presence: true,

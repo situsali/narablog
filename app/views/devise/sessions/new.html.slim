@@ -23,11 +23,12 @@ section.hero.has-background-info-dark.is-fullheight
                           span
                             | Sign in with Facebook
               .field
-                a.button.is-info.is-fullwidth
-                  span.icon
-                    i.mdi.mdi-twitter
-                  span
-                    | Sign in with Twitter
+                = link_to user_twitter_omniauth_authorize_path,
+                    class: 'button is-info is-fullwidth' do
+                    span.icon
+                      i.mdi.mdi-twitter
+                    span
+                      | Sign in with Twitter
             .column.is-1
             .column
               .field
